@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="/register" method="post">
+
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Name: </span>
+  </div>
+  <input width="100px" type="text" class="form-control" aria-label="Sizing example input" name="name" aria-describedby="inputGroup-sizing-default">
+            <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input width="100px" name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+            <select name="dorm">
+        <option value="" disabled selected >Dorm</option>
+        <option value="bangle">Bangle</option>
+        <option value="Usa">Usa</option>
+        <option value="Indian"> Indian</option>
+        <option value="rasian">Rasian</option>
+
+    </select>
+
+        <input type="submit" class="bg-success" value="register">
+
+    </form>
+    {% for student in students %}
+        <h2 style="font-weight: bold; color: chartreuse">Name: {{ student[0] }} </h2>
+        <h3>Email: {{ student[1] }}</h3>
+        <h3>Dorm: {{ student[2] }}</h3>
+        <hr>
+        <hr>
+    {% endfor %}
+    <script src="/static/js/form.js"></script>
+{% endblock %}
